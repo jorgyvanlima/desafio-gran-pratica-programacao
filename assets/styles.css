@@ -63,6 +63,12 @@ body {
   margin: 0;
 }
 
+.author-info {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .footer {
   color: var(--muted);
 }
