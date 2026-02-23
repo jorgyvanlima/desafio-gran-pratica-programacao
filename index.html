@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Case de Práticas de Programação: alternância de tema claro/escuro com acessibilidade e persistência." />
+    <title>Case | Alternância de Tema</title>
+
+    <script>
+      (function () {
+        var STORAGE_KEY = 'pp_theme';
+        var root = document.documentElement;
+        var preferred = null;
+
+        try {
+          preferred = localStorage.getItem(STORAGE_KEY);
+        } catch (_) {
+          preferred = null;
+        }
+
+        var valid = preferred === 'dark' || preferred === 'light';
+        var theme = valid
+          ? preferred
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        root.setAttribute('data-theme', theme);
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <h1 class="title">Práticas de Programação — Case Tema Claro/Escuro</h1>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Alternar tema"
+        aria-pressed="false"
+        title="Alternar tema"
+      >
+        <span class="icon" aria-hidden="true">🌙</span>
+        <span class="label">Modo escuro</span>
+      </button>
+    </header>
+
+    <main class="container" id="conteudo">
+      <section class="card" aria-labelledby="objetivo-title">
+        <h2 id="objetivo-title">Objetivo do case</h2>
+        <p>
+          Implementar a alternância entre modo claro e escuro com boa separação de responsabilidades:
+          <strong>HTML</strong> para estrutura, <strong>CSS</strong> para apresentação e temas, e <strong>JavaScript</strong>
+          para comportamento.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="criterios-title">
+        <h2 id="criterios-title">Critérios atendidos</h2>
+        <ul>
+          <li>Estratégia de tema com variáveis CSS.</li>
+          <li>Alternância por atributo único (<code>data-theme</code> no <code>&lt;html&gt;</code>).</li>
+          <li>Persistência da escolha com <code>localStorage</code>.</li>
+          <li>Respeito à preferência do sistema com <code>prefers-color-scheme</code>.</li>
+          <li>Acessibilidade com botão semântico, <code>aria-pressed</code> e foco visível.</li>
+        </ul>
+        <a class="btn" href="#" aria-disabled="true">Exemplo de botão de ação</a>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>Desenvolvido para o processo seletivo de monitoria — 2026</small>
+    </footer>
+
+    <script src="assets/script.js" defer></script>
+  </body>
+</html>
