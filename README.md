@@ -2,6 +2,13 @@
 
 Projeto desenvolvido para o case da monitoria da disciplina **Práticas de Programação**, com foco na implementação de alternância entre **modo claro** e **modo escuro** em uma página web.
 
+## 👨‍🎓 Identificação do aluno
+
+- **Nome:** Jorgyvan Lima
+- **Instituição:** Faculdade Gran
+- **Curso:** Bacharelado em Sistemas de Informação
+- **Contexto:** Candidato à monitoria da disciplina Práticas de Programação
+
 ## 🎯 Objetivo
 
 Implementar uma solução de tema claro/escuro explicando:
